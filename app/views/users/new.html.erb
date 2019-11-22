@@ -8,12 +8,15 @@
 </head>
 <body>
   <h1>New User Page</h1>
-  <form accept-charset="UTF-8", action="/users", method="post">
-    Name: <input type="text" name="user[username]"><br>
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    Email: <input type="text" name="user[email]"><br>
-    Password: <input type="password" name="user[password]"><br>
-    <input type="submit" value="Create User"> 
-  </form>
+
+ <%= form_for(@user) do |f|%>
+    <%= f.label :username, 'Enter your username' %><br>
+    <%= f.text_field :username%><br>
+    <%= f.label :email, 'Email' %><br>
+    <%= f.email_field :email, placeholder: "Email@example.com"%><br>
+    <%= f.label :password, 'Password' %><br>
+    <%= f.password_field :password%> <br>
+    <%= f.submit %>
+<%end%>
 </body>
 </html>

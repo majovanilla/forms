@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  def new; end
+  def new
+    @user = User.new
+  end
 
   def create
     #@user = User.new(username: params[:username], email: params[:email], password: params[:password])
@@ -17,6 +19,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:authenticity_token, :username, :email, :password)
+    params.require(:user).permit(:username, :email, :password)
   end
 end
