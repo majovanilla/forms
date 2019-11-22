@@ -8,12 +8,12 @@
 </head>
 <body>
   <h1>New User Page</h1>
-  <form action="/users" method="post" accept-charset="UTF-8">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  Name: <input type="text" name="username"><br>
-  Email: <input type="text" name="email"><br>
-  Password: <input type="password" name="password"><br>
-  <input type="submit" value="Create User">
-</form>
+  <form accept-charset="UTF-8", action="/users", method="post">
+    Name: <input type="text" name="user[username]"><br>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    Email: <input type="text" name="user[email]"><br>
+    Password: <input type="password" name="user[password]"><br>
+    <input type="submit" value="Create User"> 
+  </form>
 </body>
 </html>
