@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag "form" %>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+<!-- HTML implementation
+    <form action="/users" method="post">
+    First name: <input type="text" name="username"><br>
+    Email: <input type="text" name="email"><br>
+    password: <input type="text" name="password"><br>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Submit">
+</form> -->
+
+<!-- form_tag helper impementation
+    <%= form_tag users_path do |form| %>
+    <%= label_tag "Usernamer" %>
+    <%= text_field_tag :username %><br>
+    <%= label_tag"Email" %>
+    <%= text_field_tag :email %><br>
+    <%= label_tag "Password" %>
+    <%= text_field_tag :password %><br>
+    <%= submit_tag "add user"  %>
+<% end %> -->
+
+<%= form_for @user do |form|%>
+<h1><%= title %></h1>
+<div class="icon">
+  <i class="fas fa-user-circle"></i>
+</div>
+<div class="formcontainer">
+  <div class="container">
+    <label for="uname"><strong>Username</strong></label>
+    <%= form.text_field :username, :class => 'text' %>
+    <label for="mail"><strong>E-mail</strong></label>
+    <%= form.text_field :email, :class => 'text' %>
+    <label for="psw"><strong>Password</strong></label>
+    <%= form.password_field :password, :class => 'password'%>
+  </div>
+  <%= form.submit 'Submit', :class => 'button' %>
+<% end %>
